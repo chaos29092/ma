@@ -51,7 +51,7 @@ class HomeController extends Controller
     public function product($category_slug,$product_slug)
     {
         $product = product_cache($product_slug);
-        $products = Product::where('product_category_id',$product->product_category_id)->select('name','price','product_code','slug','order')->get();
+        $products = Product::where('product_category_id',$product->product_category_id)->get();
         $page_value = $product->price;
 
         return view('product',compact('product','products','page_value'));

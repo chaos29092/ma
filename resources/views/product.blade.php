@@ -59,7 +59,10 @@
                                    class="btn btn-block glyphicons glyphicons-message-empty">{{__('main.request_a_quote')}}</a>
                             </div>
                             <div class="grid-50 tablet-grid-50 mobile-grid-100 grid-parent">
-                                <div data-id="905ac06123" class="livechat_button btn btn-block glyphicons glyphicons-message-empty"><a href="https://www.livechatinc.com/customer-service-software/?utm_source=chat_button&utm_medium=referral&utm_campaign=lc_10065598">Live  Chat  Now !</a></div>
+                                <div data-id="905ac06123"
+                                     class="livechat_button btn btn-block glyphicons glyphicons-message-empty"><a
+                                            href="https://www.livechatinc.com/customer-service-software/?utm_source=chat_button&utm_medium=referral&utm_campaign=lc_10065598">Live
+                                        Chat Now !</a></div>
                             </div>
                         </div>
 
@@ -104,81 +107,7 @@
                                 {{--</div>--}}
                             </div>
                         </div>
-                        <h2 id="properties">{{title_case(__('main.properties'))}}</h2>
-                        @if(isset($product->excerpt))
-                        <p><small>Synonym: {{$product->excerpt}}</small></p>
-                        @endif
-                        <div class="grid-66 tablet-grid-66 mobile-grid-100 properties">
-                            <table>
-                                <tbody>
-                                <tr>
-                                    <td>{{title_case(__('main.product_name'))}}</td>
-                                    <td> {{$product->name}}</td>
-                                </tr>
-                                @if(isset($product->cas))
-                                    <tr>
-                                        <td>CAS NO.</td>
-                                        <td> {{$product->cas}}</td>
-                                    </tr>
-                                @endif
-                                @if(isset($product->molecular_formula))
-                                    <tr>
-                                        <td>{{title_case(__('main.molecular_formula'))}}</td>
-                                        <td> {!! $product->molecular_formula !!}</td>
-                                    </tr>
-                                @endif
-                                @if(isset($product->molecular_weight))
-                                    <tr>
-                                        <td>{{title_case(__('main.molecular_weight'))}}</td>
-                                        <td> {{$product->molecular_weight}}</td>
-                                    </tr>
-                                @endif
-                                @if(isset($product->appearance))
-                                    <tr>
-                                        <td>{{title_case(__('main.appearance'))}}</td>
-                                        <td> {{$product->appearance}}</td>
-                                    </tr>
-                                @endif
-                                </tbody>
-                            </table>
-                        </div>
 
-                        <h2>{{title_case(__('main.specification'))}}</h2>
-                        <div class="grid-66 tablet-grid-66 mobile-grid-100 properties">
-                            <table>
-                                <tbody>
-                                @if(isset($product->assay))
-                                    <tr>
-                                        <td>{{title_case(__('main.assay'))}}</td>
-                                        <td> {{$product->assay}}</td>
-                                    </tr>
-                                @endif
-                                @if(isset($product->melting_point))
-                                    <tr>
-                                        <td>{{title_case(__('main.melting_point'))}}</td>
-                                        <td> {{$product->melting_point}}</td>
-                                    </tr>
-                                @endif
-                                @if(isset($product->boiling_point))
-                                    <tr>
-                                        <td>{{title_case(__('main.boiling_point'))}}</td>
-                                        <td> {{$product->boiling_point}}</td>
-                                    </tr>
-                                @endif
-                                @if(isset($product->package))
-                                    <tr>
-                                        <td>{{title_case(__('main.package'))}}</td>
-                                        <td> {{$product->package}}</td>
-                                    </tr>
-                                @endif
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="clear"></div>
-                        <h2>{{title_case(__('main.usage'))}}</h2>
-                        {{$product->usage}}
-                        <h2>{{title_case(__('main.description'))}}</h2>
                         {!! $product->body !!}
 
                         <div class="grid-33 tablet-grid-33 mobile-grid-100 grid-parent pdf_form_container">
@@ -186,7 +115,10 @@
                                class="btn btn-block glyphicons glyphicons-message-empty">{{__('main.request_a_quote')}}</a>
                         </div>
                         <div class="grid-33 tablet-grid-33 mobile-grid-100 grid-parent pdf_form_container">
-                            <div data-id="905ac06123" class="livechat_button btn btn-block glyphicons glyphicons-message-empty"><a href="https://www.livechatinc.com/customer-service-software/?utm_source=chat_button&utm_medium=referral&utm_campaign=lc_10065598">Live  Chat  Now !</a></div>
+                            <div data-id="905ac06123"
+                                 class="livechat_button btn btn-block glyphicons glyphicons-message-empty"><a
+                                        href="https://www.livechatinc.com/customer-service-software/?utm_source=chat_button&utm_medium=referral&utm_campaign=lc_10065598">Live
+                                    Chat Now !</a></div>
                         </div>
 
                         <hr>
@@ -200,8 +132,23 @@
             </div>
             <div class="sidebar-column grid-25 pull-75 tablet-grid-25 tablet-pull-75 grid-parent">
                 <nav class="nav">
-                    @component('component.product_sidebar')
-                    @endcomponent
+                    <ul>
+                        <li><a href="/products">Products</a>
+                        @foreach($product_categories as $product_category)
+                            <li @if(str_contains(url()->current(),$product_category->slug)) class="active" @endif><a
+                                        href="/products/{{$product_category->slug}}">{{title_case($product_category->name)}}</a>
+                                @if(str_contains(url()->current(),$product_category->slug))
+                                    <ul>
+                                        @foreach($products as $product)
+                                            <li @if(str_contains(url()->current(),$product->slug)) class="active" @endif>
+                                                <a href="/products/{{$product_category->slug}}/{{$product->slug}}">{{title_case($product->name)}}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+                            </li>
+                        @endforeach
+                    </ul>
                 </nav>
                 <div class="tagcloud-container content"></div>
             </div>
