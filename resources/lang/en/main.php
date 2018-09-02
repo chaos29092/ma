@@ -60,6 +60,10 @@ return [
     'r_d_team' => 'R & D Team',
     'partner' => 'Partner',
     'human_resources' => 'Human Resources',
+    'projects' => 'Projects',
+    '' => '',
+    '' => '',
+    '' => '',
     '' => '',
     '' => '',
 

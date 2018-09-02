@@ -54,17 +54,27 @@
 
                     <div class="product_details grid-parent tab-content">
                         <div class="grid-parent grid-66 tablet-grid-66 mobile-grid-100">
-                            <div class="grid-50 tablet-grid-50 mobile-grid-100 grid-parent pdf_form_container">
+                            <div class="grid-50 tablet-grid-50 mobile-grid-100 grid-parent">
                                 <a href="/inquiry?product_name={{$product->name}}&cas={{$product->cas}}&product_id={{$product->id}}"
                                    class="btn btn-block glyphicons glyphicons-message-empty">{{__('main.request_a_quote')}}</a>
                             </div>
-                            <div class="grid-50 tablet-grid-50 mobile-grid-100 grid-parent">
-                                <div data-id="905ac06123"
-                                     class="livechat_button btn btn-block glyphicons glyphicons-message-empty"><a
-                                            href="https://www.livechatinc.com/customer-service-software/?utm_source=chat_button&utm_medium=referral&utm_campaign=lc_10065598">Live
-                                        Chat Now !</a></div>
+                            <div class="grid-50 tablet-grid-50 mobile-grid-100 grid-parent pdf_form_container">
+                                <a href="{{$product->file}}" class="btn btn-block glyphicons glyphicons-file" target="_blank">Download Brochure</a>
                             </div>
                         </div>
+
+                        {{--<div class="grid-parent grid-66 tablet-grid-66 mobile-grid-100">--}}
+                            {{--<div class="grid-50 tablet-grid-50 mobile-grid-100 grid-parent pdf_form_container">--}}
+                                {{--<a href="/inquiry?product_name={{$product->name}}&cas={{$product->cas}}&product_id={{$product->id}}"--}}
+                                   {{--class="btn btn-block glyphicons glyphicons-message-empty">{{__('main.request_a_quote')}}</a>--}}
+                            {{--</div>--}}
+                            {{--<div class="grid-50 tablet-grid-50 mobile-grid-100 grid-parent">--}}
+                                {{--<div data-id="905ac06123"--}}
+                                     {{--class="livechat_button btn btn-block glyphicons glyphicons-message-empty"><a--}}
+                                            {{--href="https://www.livechatinc.com/customer-service-software/?utm_source=chat_button&utm_medium=referral&utm_campaign=lc_10065598">Live--}}
+                                        {{--Chat Now !</a></div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
 
                         <div class="side">
                             <div class="mediaContainer">
@@ -110,16 +120,16 @@
 
                         {!! $product->body !!}
 
-                        <div class="grid-33 tablet-grid-33 mobile-grid-100 grid-parent pdf_form_container">
-                            <a href="/inquiry?product_name={{$product->name}}&cas={{$product->cas}}&product_id={{$product->id}}"
-                               class="btn btn-block glyphicons glyphicons-message-empty">{{__('main.request_a_quote')}}</a>
-                        </div>
-                        <div class="grid-33 tablet-grid-33 mobile-grid-100 grid-parent pdf_form_container">
-                            <div data-id="905ac06123"
-                                 class="livechat_button btn btn-block glyphicons glyphicons-message-empty"><a
-                                        href="https://www.livechatinc.com/customer-service-software/?utm_source=chat_button&utm_medium=referral&utm_campaign=lc_10065598">Live
-                                    Chat Now !</a></div>
-                        </div>
+                        {{--<div class="grid-33 tablet-grid-33 mobile-grid-100 grid-parent pdf_form_container">--}}
+                            {{--<a href="/inquiry?product_name={{$product->name}}&cas={{$product->cas}}&product_id={{$product->id}}"--}}
+                               {{--class="btn btn-block glyphicons glyphicons-message-empty">{{__('main.request_a_quote')}}</a>--}}
+                        {{--</div>--}}
+                        {{--<div class="grid-33 tablet-grid-33 mobile-grid-100 grid-parent pdf_form_container">--}}
+                            {{--<div data-id="905ac06123"--}}
+                                 {{--class="livechat_button btn btn-block glyphicons glyphicons-message-empty"><a--}}
+                                        {{--href="https://www.livechatinc.com/customer-service-software/?utm_source=chat_button&utm_medium=referral&utm_campaign=lc_10065598">Live--}}
+                                    {{--Chat Now !</a></div>--}}
+                        {{--</div>--}}
 
                         <hr>
                         <h3>{{title_case(__('main.quickly_search'))}}</h3>

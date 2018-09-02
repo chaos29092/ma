@@ -43,41 +43,25 @@
                 @component('component.search_form')@endcomponent
                 <h1>All Products</h1>
                 <div class="csc-default">
-                    <table class="catalog items" >
-                        <tbody class="heading h1"></tbody>
-                        <tbody class="heading h2" style="display: table-row-group; vertical-align: middle;">
-                            <tr>
-                                <td class="itemNo nobr" width="33%"><h2>CAS NO.</h2></td>
-                                <td class="text" width="33%"><h2>{{title_case(__('main.product_name'))}}</h2></td>
-                                <td class="cart short center" width="33%"><h2>{{title_case(__('main.details'))}}</h2></td>
-                            </tr>
-                        </tbody>
+                    <ul class="product_group">
                         @foreach($products as $product)
-                        <tbody class="item @if($loop->iteration%2 == 1) odd @else even @endif" style="display: table-row-group; vertical-align: middle;">
-                            <tr>
-                                <td class="itemNo">{{$product->cas}}</td>
-                                {{-- <td class="icon"></td>
-                                <td class="info short"></td> --}}
-                                <td class="text"><a href="/products/{{$product_categories->where('id',$product->product_category_id)->first()->slug}}/{{$product->slug}}">{{$product->name}}</a></td>
-                                {{-- <td class="price short nowrap right"></td> --}}
-                                <td class="cart short right">
-                                    <a href="/products/{{$product_categories->where('id',$product->product_category_id)->first()->slug}}/{{$product->slug}}" class="btn btn-narrow">{{title_case(__('main.details'))}}</a>
-                                <a href="/inquiry?product_name={{$product->name}}&cas={{$product->cas}}&product_id={{$product->id}}" class="btn btn-narrow">{{title_case(__('main.inquiry'))}}</a>
-                                </td>
-                            </tr>
-                        </tbody>
+                            <li>
+                                <h2>
+                                    <a href="/products/{{$product_categories->where('id',$product->product_category_id)->first()->slug}}/{{$product->slug}}">{{title_case($product->name)}}</a>
+                                </h2>
+                                <div>
+                                    <a href="/products/{{$product_categories->where('id',$product->product_category_id)->first()->slug}}/{{$product->slug}}">
+                                        <img src="{{Voyager::image($product->image)}}"
+                                             alt="{{title_case($product->name)}}"></a>
+                                    <ul>
+                                        {!! $product->excerpt !!}
+                                    </ul>
+                                </div>
+                            </li>
                         @endforeach
-
-                        <tbody>
-                        <tr>
-                            <td colspan="6">{{$products->links('vendor.pagination.default')}}</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    
-                    <div class="clear"></div>
+                    </ul>
+                    {{$products->links('vendor.pagination.default')}}
                 </div>
-                @component('component.search_form')@endcomponent
             </div>
 
             <div class="sidebar-column grid-25 pull-75 tablet-grid-25 tablet-pull-75 grid-parent">

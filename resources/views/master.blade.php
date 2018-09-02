@@ -140,7 +140,7 @@
                 <ul>
                     <li><a href="/">{{__('main.home')}}</a></li>
                     <li><a href="/products">{{__('main.products')}}</a></li>
-                    {{--                    <li><a href="/applications">{{__('main.applications')}}</a></li>--}}
+                    <li><a href="/projects">{{__('main.projects')}}</a></li>
                     <li><a href="/contact/contact-us">{{__('main.contact_service')}}</a></li>
                     <li><a href="/news">{{__('main.news')}}</a></li>
                     <li><a href="/company/company-history-and-profile">{{__('main.company')}}</a></li>

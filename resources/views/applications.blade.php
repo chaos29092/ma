@@ -22,7 +22,7 @@
             <nav class="breadcrumbs grid-75 push-25 tablet-grid-75 tablet-push-25 mobile-grid-100">
                 <ul>
                     <li><a href="/">{{__('main.home')}}</a></li>
-                    <li><a href="/applications">{{__('main.applications')}}</a></li>
+                    <li><a href="/projects">{{__('main.projects')}}</a></li>
                 </ul>
             </nav>
         </div>
@@ -36,27 +36,27 @@
                 <div class="csc-default">
                     <ul class="toc font-small">
                         @foreach($gallery_categories as $gallery_category)
-                            <li><a href="/applications/{{$gallery_category->slug}}"><img
+                            <li><a href="/projects/{{$gallery_category->slug}}"><img
                                             src="{{Voyager::image($gallery_category->image)}}"><span>{{title_case($gallery_category->name)}}</span></a>
                                 <ul>
                                     <li>
                                         @foreach($galleries->where('gallery_category_id',$gallery_category->id) as $gallery)
-                                            <a href="/applications/{{$gallery_category->slug}}/{{$gallery->slug}}">{{title_case($gallery->name)}}</a>
+                                            <a href="/projects/{{$gallery_category->slug}}/{{$gallery->slug}}">{{title_case($gallery->name)}}</a>
                                         @endforeach
                                     </li>
                                 </ul>
                             </li>
                         @endforeach
-                        <li><a href="/product-tags"><img
-                                        src="{{Voyager::image(setting('product.tags'))}}"><span>{{__('main.product_tags')}}</span></a>
-                            <ul>
-                                <li>
-                                    @foreach($product_tags as $product_tag)
-                                        <a href="/product-tags/{{$product_tag->slug}}">{{title_case($product_tag->name)}}</a>
-                                    @endforeach
-                                </li>
-                            </ul>
-                        </li>
+                        {{--<li><a href="/product-tags"><img--}}
+                                        {{--src="{{Voyager::image(setting('product.tags'))}}"><span>{{__('main.product_tags')}}</span></a>--}}
+                            {{--<ul>--}}
+                                {{--<li>--}}
+                                    {{--@foreach($product_tags as $product_tag)--}}
+                                        {{--<a href="/product-tags/{{$product_tag->slug}}">{{title_case($product_tag->name)}}</a>--}}
+                                    {{--@endforeach--}}
+                                {{--</li>--}}
+                            {{--</ul>--}}
+                        {{--</li>--}}
                     </ul>
                     <div class="clear"></div>
                 </div>
@@ -64,28 +64,28 @@
             <div class="sidebar-column grid-25 pull-75 tablet-grid-25 tablet-pull-75 grid-parent">
                 <nav class="nav">
                     <ul>
-                        <li class="current"><a href="/applications">{{title_case(__('main.applications'))}}</a></li>
+                        <li class="current"><a href="/projects">{{title_case(__('main.projects'))}}</a></li>
                         @foreach($gallery_categories as $gallery_category)
                             <li>
-                                <a href="/applications/{{$gallery_category->slug}}">{{title_case($gallery_category->name)}}</a>
+                                <a href="/projects/{{$gallery_category->slug}}">{{title_case($gallery_category->name)}}</a>
                                 <ul>
                                     @foreach($galleries->where('gallery_category_id',$gallery_category->id) as $gallery)
                                         <li>
-                                            <a href="/applications/{{$gallery_category->slug}}/{{$gallery->slug}}">{{title_case($gallery->name)}}</a>
+                                            <a href="/projects/{{$gallery_category->slug}}/{{$gallery->slug}}">{{title_case($gallery->name)}}</a>
                                         </li>
                                     @endforeach
                                 </ul>
                             </li>
                         @endforeach
-                        <li><a href="/product-tags">{{__('main.product_tags')}}</a>
-                            <ul>
-                                @foreach($product_tags as $product_tag)
-                                    <li>
-                                        <a href="/product-tags/{{$product_tag->slug}}">{{title_case($product_tag->name)}}</a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </li>
+                        {{--<li><a href="/product-tags">{{__('main.product_tags')}}</a>--}}
+                            {{--<ul>--}}
+                                {{--@foreach($product_tags as $product_tag)--}}
+                                    {{--<li>--}}
+                                        {{--<a href="/product-tags/{{$product_tag->slug}}">{{title_case($product_tag->name)}}</a>--}}
+                                    {{--</li>--}}
+                                {{--@endforeach--}}
+                            {{--</ul>--}}
+                        {{--</li>--}}
                     </ul>
                 </nav>
                 <div class="tagcloud-container content"></div>

@@ -17,9 +17,9 @@ Route::get('news', 'HomeController@news');
 Route::get('news/newsletter', 'HomeController@newsletter');
 Route::get('news/detail/{slug}', 'HomeController@new');
 
-//Route::get('applications', 'HomeController@applications');
-//Route::get('applications/{category_slug}', 'HomeController@application_category');
-//Route::get('applications/{category_slug}/{gallery_slug}', 'HomeController@application');
+Route::get('projects', 'HomeController@applications');
+Route::get('projects/{category_slug}', 'HomeController@application_category');
+Route::get('projects/{category_slug}/{gallery_slug}', 'HomeController@application');
 
 //Route::get('product-tags/{tag_slug}','HomeController@product_tag');
 //Route::get('product-tags','HomeController@product_tags');

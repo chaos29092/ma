@@ -53,6 +53,7 @@
                             </li>
                         @endforeach
                     </ul>
+                    {{$products->links('vendor.pagination.default')}}
                 </div>
             </div>
             <div class="sidebar-column grid-25 pull-75 tablet-grid-25 tablet-pull-75 grid-parent">

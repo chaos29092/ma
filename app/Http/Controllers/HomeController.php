@@ -33,7 +33,7 @@ class HomeController extends Controller
     public function products()
     {
         $page = page_cache(2);
-        $products = Product::paginate(30);
+        $products = Product::paginate(12);
         $page_value = avg_price()*0.4;
 
         return view('products',compact('page','products','page_value'));
@@ -42,7 +42,7 @@ class HomeController extends Controller
     public function products_category($category_slug)
     {
         $product_category = ProductCategory::whereSlug($category_slug)->firstOrFail();
-        $products = Product::where('product_category_id',$product_category->id)->paginate(30);
+        $products = Product::where('product_category_id',$product_category->id)->paginate(12);
         $page_value = $products->avg('price')*0.6;
 
         return view('products_category',compact('product_category','products','page_value'));
